@@ -61,6 +61,7 @@ android {
 }
 
 dependencies {
+
     implementation(Config.Libs.Androidx.activity)
     // The new activity result APIs force us to include Fragment 1.3.0
     // See https://issuetracker.google.com/issues/152554847
@@ -72,6 +73,8 @@ dependencies {
 
     implementation(Config.Libs.Androidx.lifecycleExtensions)
     annotationProcessor(Config.Libs.Androidx.lifecycleCompiler)
+
+
 
     implementation(platform(Config.Libs.Firebase.bom))
     api(Config.Libs.Firebase.auth)

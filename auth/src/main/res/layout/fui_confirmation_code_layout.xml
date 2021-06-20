@@ -6,28 +6,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_collapseMode="pin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="VERIFICATION"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <me.zhanghai.android.materialprogressbar.MaterialProgressBar
         android:id="@+id/top_progress_bar"
         style="@style/FirebaseUI.TopProgressBar"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             style="@style/FirebaseUI.WrapperStyle"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:id="@+id/image"
+                android:contentDescription="@string/fui_verification"
+                android:src="@drawable/img_code_verification" />
+
             <TextView
                 android:id="@+id/header"
                 style="@style/FirebaseUI.Text.T08"
                 android:layout_width="match_parent"
+                app:layout_constraintBottom_toBottomOf="@+id/image"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/fui_enter_confirmation_code"
-                app:layout_constraintTop_toTopOf="parent" />
+                 />
 
             <TextView
                 android:id="@+id/edit_phone_number"
@@ -109,6 +146,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
